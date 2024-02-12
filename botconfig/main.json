@@ -1,0 +1,23 @@
+{
+    "clienttoken": "",
+    "Note_Token:": "Put Your Bot Token Above (If your using replit then make a new secret 'clienttoken' and put ur bot token there... and then keep this string empty)",
+    "clientname": "Dawn",
+    "clientid": "1198662843931840555",
+    "TestingServerID": "1182245769164628008",
+    "clientavatar": "",
+    "prefix": "d!",
+    "developerID": [
+        "1121805578285625395"
+    ],
+    "mongooseConnectionString": "mongodb+srv://best:UDglXQEBZFuksePq@cluster0.68mktfu.mongodb.net/?retryWrites=true&w=majority",
+    "colorthemecode": "#87CEEB",
+    "randomMessages_Cooldown": [
+        "Wait Dont Spam...",
+        "Spaming Isn't Cool....",
+        "Never Gonna Let You Down",
+        "Subscribe To Begula",
+        "Hold ur horses...."
+    ],
+    "NOTE:": "IF YOU DONT PUT STUFF HERE IT WILL THROW ERRS",
+    "topgg": ""
+}
