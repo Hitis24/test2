@@ -15,7 +15,7 @@ client.on("messageCreate", async (message) => {
   if (message.content.match(prefixMention)) {
 
     let embed = new MessageEmbed()
-        .setTitle(`${client.user.username} IS HERE!`)
+        .setTitle(`DAWN IS HERE!`)
         .setDescription(`**HEY ${message.author.username},** I WAS MADE BY Gotokuji 
 >  BOT PREFIX: \`${config.prefix}\` 
 >  FORGOT MY PREFIX? DONT WORRY YOU CAN ALWAYS MENTION ME TO CHECK MY PREFIX`)
