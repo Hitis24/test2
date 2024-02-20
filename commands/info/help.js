@@ -10,43 +10,43 @@ module.exports = {
     const row = new MessageActionRow().addComponents(
       new MessageSelectMenu()
         .setCustomId('select')
-        .setPlaceholder('Weiden Menu')
+        .setPlaceholder('Dawn Menu')
         .addOptions([
           // Options for the dropdown menu
           {
             label: 'Main Menu',
             description: 'Shows the main menu',
-            emoji: "<:emoji_11:1183805043091189780>",
+            emoji: "<:1_:1209482160067711006>",
             value: '0',
           },
           {
             label: 'Config Commands',
             description: 'Shows all the config commands',
-            emoji: "<:emoji_12:1183805079304818728>",
+            emoji: "<:2_:1209482163276218409>",
             value: '1',
           },
           {
             label: 'Fun Commands',
             description: 'Shows all the fun commands',
-            emoji: "<:emoji_12:1183805113425465434>",
+            emoji: "<:3_:1209482170192629840>",
             value: '3',
           },
           {
             label: 'Games Commands',
             description: 'Shows all the game commands',
-            emoji: "<:emoji_13:1183805142940786698>",
+            emoji: "<:4_:1209482177662947348>",
             value: '4',
           },
           {
             label: 'Information Commands',
             description: 'Shows all the information commands',
-            emoji: "<:emoji_14:1183805166584086538>",
+            emoji: "<:5_:1209482185820737606>",
             value: '5',
           },
           {
             label: 'Moderation Commands',
             description: 'Shows all the moderation commands',
-            emoji: "<:emoji_15:1183805193331150889>",
+            emoji: "<:6_:1209482190782730261>",
             value: '6',
           },
           
@@ -54,19 +54,19 @@ module.exports = {
           {
             label: 'Utility Commands',
             description: 'Shows all the utility commands',
-            emoji: " <:emoji_17:1183805223031025694>",
+            emoji: " <:7_:1209482193395515483>",
             value: '7',
           },
           {
             label: 'Image Commands',
             description: 'Shows all the image commands',
-            emoji: "<:emoji_17:1183805248532381787>",
+            emoji: "<:8_:1209482227742933002>",
             value: '8',
           },
           {
             label: 'Economy Commands',
             description: 'Shows all the economy commands',
-            emoji: "<:emoji_18:1183805274868432907>",
+            emoji: "<:9_:1209482230968360980>",
             value: '9',
           },
         ]),
