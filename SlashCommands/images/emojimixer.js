@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js'); // Changed from EmbedBuilder to MessageEmbed
 const superagent = require('superagent');
 const { onlyEmoji } = require('emoji-aware');
@@ -26,7 +26,7 @@ module.exports = {
         const response = `One or both of these emojis (\`${input}\`) are not supported. Keep in mind that gestures (i.e., thumbsup) and custom server emojis are not supported.`;
 
         const output = await superagent.get('https://tenor.googleapis.com/v2/featured').query({
-            key: 'YOUR_TENOR_API_KEY', // Replace 'YOUR_TENOR_API_KEY' with your actual Tenor API key
+            key: 'AIzaSyBEUenxJYn75oZ7X9gVpqK-IkfUVCGy18w', // Replace 'YOUR_TENOR_API_KEY' with your actual Tenor API key
             contentfilter: 'high',
             media_filter: 'png_transparent',
             component: 'proactive',
