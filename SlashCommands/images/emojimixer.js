@@ -1,12 +1,19 @@
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
 const superagent = require('superagent');
 const { onlyEmoji } = require('emoji-aware');
 
 module.exports = {
-    name: 'emojimixer',
-    description: 'Combine two different emojis',
+    data: new SlashCommandBuilder()
+        .setName('emojimixer')
+        .setDescription('Combine two different emojis')
+        .addStringOption(option =>
+            option.setName('emojis')
+                .setDescription('Two emojis to combine')
+                .setRequired(true)),
+
     async execute(interaction) {
-        try {
+        try {  
             // Defer the reply to the interaction to ensure we can send other messages
             await interaction.deferReply({ ephemeral: true });
 
