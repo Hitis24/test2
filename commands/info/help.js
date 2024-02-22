@@ -76,24 +76,24 @@ module.exports = {
     const embed = new MessageEmbed()
       .setTitle("**HELP MENU**")
       .setDescription(` <a:melodydance:1210193813084184646> __**BOT INFO**__
-<a:marrow:1209480005437104148> > Prefix: \`d!\`
-<a:marrow:1209480005437104148> > Owner: \`Gotokuji\`
+> Prefix: \`d!\`
+> Owner: \`Gotokuji\`
 
 <a:melodydance:1210193813084184646> __**BOT'S COMMANDS**__
-<a:marrow:1209480005437104148> > Config Commands
-<a:marrow:1209480005437104148> > Fun Commands
-<a:marrow:1209480005437104148> > Games Commands
-<a:marrow:1209480005437104148> > Moderation Commands
-<a:marrow:1209480005437104148> > Information Commands
-<a:marrow:1209480005437104148> > Utility Commands
-<a:marrow:1209480005437104148> > Image Commands
-<a:marrow:1209480005437104148> > Economy Commands
+> Config Commands
+> Fun Commands
+> Games Commands
+> Moderation Commands
+> Information Commands
+> Utility Commands
+> Image Commands
+> Economy Commands
 
 <a:melodydance:1210193813084184646> __**BOT'S STATUS**__
-<a:marrow:1209480005437104148> > Current Ping: ${client.ws.ping}ms
-<a:marrow:1209480005437104148> > Discord.js Version: ${discordjsVersion}
-<a:marrow:1209480005437104148> > Running on Node ${process.version} on ${process.platform} ${process.arch}
-<a:marrow:1209480005437104148> > Made By Gotokuji`)
+> Current Ping: ${client.ws.ping}ms
+> Discord.js Version: ${discordjsVersion}
+> Running on Node ${process.version} on ${process.platform} ${process.arch}
+> Made By Gotokuji`)
       .setImage("https://media.discordapp.net/attachments/1182245769164628011/1201489473888858293/aesethdawn.gif?ex=65ca0145&is=65b78c45&hm=a56b8b36a7b0274a458b7c8ec0cf183535e7a3e793a4ce880a7ae525eb3cbee8&")
       .setThumbnail(message.guild.iconURL({ dynamic: true }))
       .setColor("#87CEEB");
