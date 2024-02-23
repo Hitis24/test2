@@ -1,34 +1,24 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
 const superagent = require('superagent');
 const { onlyEmoji } = require('emoji-aware');
 
 module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('emojimixer')
-        .setDescription('Combine two different emojis')
-        .addStringOption(option =>
-            option.setName('emojis')
-                .setDescription('Two emojis to combine')
-                .setRequired(true)),
-
-    async execute(interaction) {
-        try {  
-            // Defer the reply to the interaction to ensure we can send other messages
-            await interaction.deferReply({ ephemeral: true });
-
-            const eString = interaction.options.getString('emojis');
+    name: 'emojimixer',
+    description: 'Combine two different emojis',
+    async execute(message, args) {
+        try {
+            const eString = args.join(' ');
             const input = onlyEmoji(eString);
 
             if (input.length !== 2) {
                 const response = 'Please provide exactly two emojis.';
-                return await interaction.editReply({ content: response });
+                return message.channel.send(response);
             }
 
             const response = `One or both of these emojis (\`${input}\`) are not supported. Keep in mind that gestures (i.e., thumbsup) and custom server emojis are not supported.`;
 
             const output = await superagent.get('https://tenor.googleapis.com/v2/featured').query({
-                key: 'AIzaSyBEUenxJYn75oZ7X9gVpqK-IkfUVCGy18w',
+                key: 'YOUR_TENOR_API_KEY',
                 contentfilter: 'high',
                 media_filter: 'png_transparent',
                 component: 'proactive',
@@ -37,16 +27,15 @@ module.exports = {
             });
 
             if (!output || !output.body.results[0] || eString.startsWith('<') || eString.endsWith('>')) {
-                return await interaction.editReply({ content: response });
+                return message.channel.send(response);
             }
 
             const embed = new MessageEmbed().setColor('BLURPLE').setImage(output.body.results[0].url);
-
-            await interaction.editReply({ embeds: [embed] });
+            message.channel.send({ embeds: [embed] });
         } catch (error) {
-            console.error('Error handling interaction:', error);
+            console.error('Error handling command:', error);
             // Handle the error appropriately, such as logging it or sending an error message to the user
-            await interaction.reply('An error occurred while processing your request.', { ephemeral: true });
+            message.channel.send('An error occurred while processing your request.');
         }
     }
 };
