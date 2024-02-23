@@ -29,7 +29,7 @@ module.exports = {
       const response = `One or both of these emojis (\`${input}\`) are not supported. Keep in mind that gestures (i.e., thumbsup) and custom server emojis are not supported.`;
 
       const output = await superagent.get('https://tenor.googleapis.com/v2/featured').query({
-        key: 'YOUR_TENOR_API_KEY',
+        key: 'AIzaSyBEUenxJYn75oZ7X9gVpqK-IkfUVCGy18w',
         contentfilter: 'high',
         media_filter: 'png_transparent',
         component: 'proactive',
