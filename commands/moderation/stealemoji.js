@@ -3,33 +3,19 @@ const { Util, MessageEmbed } = require("discord.js");
 module.exports = {
     name: "addemoji",
     category: "moderation",
-    description: "Steal emojis from other servers",
+    description: "Steal emojis from other server",
     userpermissions: ["MANAGE_EMOJIS_AND_STICKERS"],
     botpermissions: ["MANAGE_EMOJIS_AND_STICKERS"],
-    usage: "addemoji <name>",
+    usage: "addemoji <emoji> <name>",
     aliases: ["stealemoji"],
     run: async (client, message, args) => {
-        // Get the replied message
-        const repliedMessage = message.reference && message.channel.messages.cache.get(message.reference.messageID);
-        if (!repliedMessage) {
-            return message.channel.send("You need to reply to a message containing the emoji you want to steal.");
-        }
+        const emoji = args[0];
+        if (!emoji) return message.channel.send("Please provide an emoji to add.\n\n**Usage:** `addemoji <emoji> <name>`");
 
-        // Check if the replied message contains an emoji
-        const emojiRegex = /<a?:.+?:\d+>/g;
-        const emojis = repliedMessage.content.match(emojiRegex);
-        if (!emojis || emojis.length === 0) {
-            return message.channel.send("The replied message does not contain a valid custom emoji.");
-        }
+        const custom = Util.parseEmoji(emoji);
+        if (!custom.id) return message.channel.send("Please provide a valid custom emoji.");
 
-        // Parse the first emoji found in the replied message
-        const custom = Util.parseEmoji(emojis[0]);
-        if (!custom.id) {
-            return message.channel.send("Could not parse the emoji from the replied message.");
-        }
-
-        // Process the name argument
-        const name = args[0] ? args[0].replace(/[^a-z0-9]/gi, "") : null;
+        const name = args[1] ? args[1].replace(/[^a-z0-9]/gi, "") : null;
         if (!name) {
             return message.channel.send("Please provide a name to set.");
         }
