@@ -9,25 +9,21 @@ module.exports = {
     usage: "addemoji <name>",
     aliases: ["stealemoji"],
     run: async (client, message, args) => {
-        // Check if the message is a reply
-        if (!message.reference || !message.reference.messageID) {
+        // Get the replied message
+        const repliedMessage = message.reference && message.channel.messages.cache.get(message.reference.messageID);
+        if (!repliedMessage) {
             return message.channel.send("You need to reply to a message containing the emoji you want to steal.");
         }
 
-        // Get the replied message
-        const repliedMessage = await message.channel.messages.fetch(message.reference.messageID);
-        if (!repliedMessage) {
-            return message.channel.send("Could not fetch the replied message. Make sure you're replying to a valid message containing the emoji.");
-        }
-
         // Check if the replied message contains an emoji
-        if (!repliedMessage.content.match(/<:.+?:\d+>/)) {
+        const emojiRegex = /<a?:.+?:\d+>/g;
+        const emojis = repliedMessage.content.match(emojiRegex);
+        if (!emojis || emojis.length === 0) {
             return message.channel.send("The replied message does not contain a valid custom emoji.");
         }
 
-        // Parse the emoji from the replied message
-        const emoji = repliedMessage.content.match(/<:.+?:\d+>/)[0];
-        const custom = Util.parseEmoji(emoji);
+        // Parse the first emoji found in the replied message
+        const custom = Util.parseEmoji(emojis[0]);
         if (!custom.id) {
             return message.channel.send("Could not parse the emoji from the replied message.");
         }
